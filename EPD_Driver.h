@@ -18,8 +18,8 @@
 #define LOW             0
 #define HIGH            1
 
-#define COLORED      		0
-#define UNCOLORED    		1
+#define COLORED         0
+#define UNCOLORED       1
 
 #define PANEL_SETTING                               0x00
 #define POWER_SETTING                               0x01
