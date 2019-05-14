@@ -12,18 +12,18 @@ uint8_t RedImage  [IMAGE_SIZE];
 
 void NRF_GPIO_Init(void)
 {
-	nrf_gpio_cfg_input(EPD_BUSY_PIN, NRF_GPIO_PIN_NOPULL);
-	nrf_gpio_cfg_output(EPD_DC_PIN);
-	nrf_gpio_cfg_output(EPD_RST_PIN);
-	nrf_gpio_pin_clear(EPD_DC_PIN);
-	nrf_gpio_pin_clear(EPD_RST_PIN);
+    nrf_gpio_cfg_input(EPD_BUSY_PIN, NRF_GPIO_PIN_NOPULL);
+    nrf_gpio_cfg_output(EPD_DC_PIN);
+    nrf_gpio_cfg_output(EPD_RST_PIN);
+    nrf_gpio_pin_clear(EPD_DC_PIN);
+    nrf_gpio_pin_clear(EPD_RST_PIN);
 }
 
 void NRF_GPIO_unInit(void)
 {
-	nrf_gpio_cfg_default(EPD_BUSY_PIN);
-	nrf_gpio_cfg_default(EPD_DC_PIN);
-	nrf_gpio_cfg_default(EPD_RST_PIN);
+    nrf_gpio_cfg_default(EPD_BUSY_PIN);
+    nrf_gpio_cfg_default(EPD_DC_PIN);
+    nrf_gpio_cfg_default(EPD_RST_PIN);
 }
 
 void epd_spi_event_handler(nrf_drv_spi_evt_t const * p_event, void * p_context)
@@ -47,7 +47,7 @@ void NRF_SPI_unInit(void)
 
 static void EPD_SpiTransfer(unsigned char data)
 {
-	epd_spi_tx_buf[0] = data;
+    epd_spi_tx_buf[0] = data;
     epd_spi_xfer_done = false;
     nrf_drv_spi_transfer(&epd_spi, epd_spi_tx_buf, 1, epd_spi_rx_buf, 0);
     while(!epd_spi_xfer_done);
@@ -65,14 +65,14 @@ static void EPD_Reset(void)
 
 static void EPD_SendCommand(unsigned char command) 
 {
-	nrf_gpio_pin_write(EPD_DC_PIN, LOW);
-	EPD_SpiTransfer(command);
+    nrf_gpio_pin_write(EPD_DC_PIN, LOW);
+    EPD_SpiTransfer(command);
 }
 
 static void EPD_SendData(unsigned char data) 
 {
-	nrf_gpio_pin_write(EPD_DC_PIN, HIGH);
-	EPD_SpiTransfer(data);
+    nrf_gpio_pin_write(EPD_DC_PIN, HIGH);
+    EPD_SpiTransfer(data);
 }
 
 static void EPD_WaitUntilIdle(void)
@@ -88,15 +88,15 @@ static void EPD_WaitUntilIdle(void)
 static void EPD_TurnOnDisplay(void)
 {
     EPD_SendCommand(POWER_ON);
-	EPD_WaitUntilIdle();
+    EPD_WaitUntilIdle();
     EPD_SendCommand(DISPLAY_REFRESH);
-	nrf_delay_ms(100);
-	EPD_WaitUntilIdle();
+    nrf_delay_ms(100);
+    EPD_WaitUntilIdle();
 }
 
 uint8_t EPD_Init(void) 
 {
-	EPD_Reset();
+    EPD_Reset();
 	
     EPD_SendCommand(POWER_SETTING);
     EPD_SendData(0x37);
@@ -135,7 +135,7 @@ uint8_t EPD_Init(void)
     EPD_SendCommand(0xe5);
     EPD_SendData(0x03);
 
-	return 0;
+    return 0;
 }
 
 void EPD_Clear(void)
