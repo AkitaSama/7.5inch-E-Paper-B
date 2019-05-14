@@ -8,12 +8,12 @@
 #define EPD_WIDTH       640
 #define EPD_HEIGHT      384
 
-#define EPD_SDI_PIN 		16
-#define EPD_SCK_PIN 		17
-#define EPD_CS_PIN 			18
-#define EPD_DC_PIN 			19
-#define EPD_RST_PIN			15
-#define EPD_BUSY_PIN		20
+#define EPD_SDI_PIN     16
+#define EPD_SCK_PIN     17
+#define EPD_CS_PIN      18
+#define EPD_DC_PIN      19
+#define EPD_RST_PIN     15
+#define EPD_BUSY_PIN    20
 
 #define LOW             0
 #define HIGH            1
