@@ -4,10 +4,9 @@
 #include "nrf_delay.h"
 #include "nrf_gpio.h"
 #include "nrf_drv_spi.h"
-#include "Fonts.h"
 
-#define EPD_WIDTH       	640
-#define EPD_HEIGHT      	384
+#define EPD_WIDTH       640
+#define EPD_HEIGHT      384
 
 #define EPD_SDI_PIN 		16
 #define EPD_SCK_PIN 		17
@@ -16,8 +15,8 @@
 #define EPD_RST_PIN			15
 #define EPD_BUSY_PIN		20
 
-#define LOW             	0
-#define HIGH            	1
+#define LOW             0
+#define HIGH            1
 
 #define COLORED      		0
 #define UNCOLORED    		1
